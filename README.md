@@ -7,3 +7,7 @@ This script injects many deauth packets against a client connected to an Access 
 > when the network reach the maximum number of possible connected clients, the AP sends deauth packets to the next clients that try to 
 > connect.
 
+Here is an example of how this packets are injected.
+
+
+Knowing this, we can use it to inject packets at our will to disconnect a specific device from almost any network.
