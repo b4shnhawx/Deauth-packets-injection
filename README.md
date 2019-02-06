@@ -27,6 +27,7 @@ sudo apt-get install aircrack-ng
 ```
 
 __Second method:__
+
 We install all the dependencies for aircrack.
 ```sh
 sudo apt-get -y install build-essential libssl-dev libnl-3-dev libnl-genl-3-dev dpkg-dev g++ g++-4.8 libc-dev-bin libc6-dev libstdc++-4.8-dev zlib1g-dev debian-keyring g++-multilib g++-4.8-multilib gcc-4.8-doc libstdc++6-4.8-dbg glibc-doc libstdc++-4.8-doc libalgorithm-merge-perl libssl-doc libalgorithm-diff-xs-perl
