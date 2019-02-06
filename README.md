@@ -42,3 +42,8 @@ make
 make install
 ```
 Finally we just download the [deauth_wireless_attack.sh]() script and execute it in bash.
+```sh
+wget 
+sudo bash ~/deauth_wireless_attack.sh
+```
+### Example
