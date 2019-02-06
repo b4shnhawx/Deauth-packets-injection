@@ -36,8 +36,8 @@ sudo apt-get update
 And now we just download, decompress, compile and install the suite.
 ```sh
 wget https://download.aircrack-ng.org/aircrack-ng-1.5.2.tar.gz
-tar -zxvf aircrack-ng-1.2-rc4.tar.gz
-cd aircrack-ng-1.2-rc4
+tar -zxvf ccc.tar.gz
+cd aircrack-ng-1.5.2
 make
 make install
 ```
