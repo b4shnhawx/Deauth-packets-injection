@@ -7,9 +7,9 @@ This script injects many deauth packets against a client connected to an Access 
 > when the network reach the maximum number of possible connected clients, the AP sends deauth packets to the next clients that try to 
 > connect.
 
-Here is an example of how this packets are injected (left). Also we can view an deauthentication packet sniffing (right).
+Here is an example of how this packets are injected (left). Also we can view an deauthentication packet sniffing (right). As we can view, this packets need a source and destination MAC addresses.
 <p align="center">
-  <img width="200" height="300" src="https://github.com/davidahid/Deauth-packets-injection/blob/master/images/deauth_desc.png">
+  <img src="https://github.com/davidahid/Deauth-packets-injection/blob/master/images/imgs.png">
 </p>
 
 Knowing all this, we can use it to inject packets at our will to disconnect a specific device from almost any network.
