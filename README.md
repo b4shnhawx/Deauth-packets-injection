@@ -9,7 +9,8 @@ This script injects many deauth packets against a client connected to an Access 
 
 Here is an example of how this packets are injected (left). Also we can view an deauthentication packet sniffing (right).
 <p align="center">
-  <img src="https://github.com/davidahid/Deauth-packets-injection/blob/master/images/imgs.png">
+  <img width="200" height="300" src="https://github.com/davidahid/Deauth-packets-injection/blob/master/images/deauth_desc.png">
 </p>
 
-Knowing this, we can use it to inject packets at our will to disconnect a specific device from almost any network.
+Knowing all this, we can use it to inject packets at our will to disconnect a specific device from almost any network.
+The program we used is the aricrack-ng suit in Kali Linux.
