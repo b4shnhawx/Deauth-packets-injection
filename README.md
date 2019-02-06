@@ -13,4 +13,4 @@ Here is an example of how this packets are injected (left). Also we can view an 
 </p>
 
 Knowing all this, we can use it to inject packets at our will to disconnect a specific device from almost any network.
-The program we used is the aricrack-ng suit in Kali Linux.
+The program that we going to use is the aircrack-ng suit in Kali Linux.
