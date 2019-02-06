@@ -9,7 +9,7 @@ This script injects many deauth packets against a client connected to an Access 
 
 Here is an example of how this packets are injected.
 <p align="center">
-  <img width="200" height="600" src="https://github.com/davidahid/Deauth-packets-injection/blob/master/images/deauth_desc.png">
+  <img width="200" height="400" src="https://github.com/davidahid/Deauth-packets-injection/blob/master/images/deauth_desc.png">
 </p>
 
 Knowing this, we can use it to inject packets at our will to disconnect a specific device from almost any network.
