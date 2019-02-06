@@ -41,4 +41,4 @@ cd aircrack-ng-1.2-rc4
 make
 make install
 ```
-Now just download the [deauth_wireless_attack.sh]() script
+Finally we just download the [deauth_wireless_attack.sh]() script and execute it in bash.
