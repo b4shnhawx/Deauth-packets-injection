@@ -3,7 +3,6 @@
 #How to: https://hackernoon.com/forcing-a-device-to-disconnect-from-wifi-using-a-deauthentication-attack-f664b9940142
 #OUI lookup: https://hwaddress.com/?q=38%3A78%3A62
 
-
 #Function for wait 12 seconds
 waitFunction()
 {
@@ -83,7 +82,7 @@ newTerminal()
 	gnome=`which gnome-terminal`
 
 	#If konsole (for kde plasma) is founded...
-	if [[ $kde == '/usr/bin/konsole1' ]];
+	if [[ $kde == '/usr/bin/konsole' ]];
 	then
 		#Open konsole without closing it with a specific height (avoid the window is hidden
 		#by the background instruction in the final), width and position. Then execute (-e)
@@ -92,13 +91,13 @@ newTerminal()
 		konsole --noclose --geometry 700x400+0+0 -e $1 2> /dev/null &
 
 	#If xfce4-terminal (for xfce) is founded...
-	elif [[ $xfce == '/usr/bin/xfce4-terminal1' ]];
+	elif [[ $xfce == '/usr/bin/xfce4-terminal' ]];
 	then
 		#Will do the same as above but with the specific sintaxis for xfce
-		xfce4-terminal --hold --geometry=700x400+0+0 -e=$1 2> /dev/null &
+		xfce4-terminal --hold --geometry=700x400+0+0 -e="$1" 2> /dev/null &
 
 	#If gnome-terminal (for gnome) is founded... (BETA xd)
-	elif [[ $gnome == '/usr/bin/gnome-terminal1' ]];
+	elif [[ $gnome == '/usr/bin/gnome-terminal(BROKEN)' ]]; #Delete (BROKEN) to enter in the elif condition
 	then
 		#Will do the same as above but with the specific sintaxis for gnome. Gnome It doesnt work
 		#well for this application. Cant execute commands and not have a hold/no close option for
@@ -107,7 +106,7 @@ newTerminal()
 		echo -e $RED"It seems like gnome-terminal have problems with --command option :/"$END
 
 	#If lxterminal (for lxde) is founded... (BETA xd)
-	elif [[ $lxde == '/usr/bin/lxterminal1' ]];
+	elif [[ $lxde == '/usr/bin/lxterminal(BROKEN)' ]]; #Delete (BROKEN) to enter in the elif condition
 	then
 		#Will do the same as above but with the specific sintaxis for gnome. As gnome, it doesnt
 		#work well because it doesnt have hold/no close option.
@@ -115,9 +114,37 @@ newTerminal()
 
 	#But if no desktop manager is founded...
 	else
+		#Show the commands the user need to input in a new terminal
 		echo ""
-		echo -e "No compatible desktop enviroment founded: KDE, XFCE, Gnome ("$RED"BETA"$END"), LXDE ("$RED"BETA"$END")"
-		echo -e "Please, open a new terminal and enter this -> " $CYAN$1$END
+		echo -e "No compatible desktop enviroment founded: KDE, XFCE, Gnome ("$LIGHTYELLOW"BETA"$END"), LXDE ("$LIGHTYELLOW"BETA"$END")"
+		echo "My recommendation is to install the xfce4-terminal (I will install only the WM terminal, not the entire xfce4 desktop environment, I promise). Do you want?"
+		echo ""
+		read -p "[ y/n ]: " install_response
+		echo ""
+
+		#If the response for the install is yes...
+		if [[ $install_response == 'y' || $install_response == 'Y' ]];
+		then
+			echo "Ok, this takes a few time, hold on :)"
+			echo ""
+
+			#...installs only xfce4-terminal, no the entire desktop enviroment.
+			sudo apt-get install xfce4-terminal 2> /dev/null
+
+			echo ""
+			echo ""
+			echo "All ready, rerun this script :p"
+
+			#Exits the script for rerun it
+			exit 0
+
+		#But if the user tells no or whatever...
+		else
+			#...only prints the command that the user need to type it manually in another terminal.
+			echo -e "Mh... Ok... Then please, open a new terminal and enter this -> " $CYAN$1$END
+
+			#And the script continues running normally.
+		fi
 	fi
 }
 
@@ -134,8 +161,9 @@ BLUE="\e[34m"
 BLACK="\e[40m"
 WHITE="\e[37m"
 CYAN="\e[36m"
+LIGHTYELLOW="\e[1;33m"
 
-UNDERRED="\e[101m"
+UNDERRED="\e[41m"
 UNDERGREEN="\e[42m"
 
 #Obv we need a control sequence that closes the rest control sequences
@@ -261,6 +289,7 @@ do
 	echo ""
 	echo -e $BLUE$BOLD"4)"$END$END "You want to make another deauth attack to another host in the same network? Press y (yes) or any key followed by enter to accept, or n followed by enter to exit the program."
 	#Saves the response of the user in the variable anotherattack
+	echo ""
 	read -p "[ y/n ]: " anotherattack
 	echo ""
 
