@@ -34,6 +34,7 @@ sudo apt-get update
 ```
 And now we just download, decompress, compile and install the suite.
 ```sh
+cd ~
 wget https://download.aircrack-ng.org/aircrack-ng-1.5.2.tar.gz
 tar -zxvf ccc.tar.gz
 cd aircrack-ng-1.5.2
@@ -42,6 +43,7 @@ make install
 ```
 Finally we just download the [deauth_wireless_attack.sh](https://github.com/davidahid/Deauth-packets-injection/blob/master/scripts/deauth_wireless_attack.sh) script and execute it in bash.
 ```sh
+cd ~
 git clone https://github.com/davidahid/Deauth-packets-injection/blob/master/scripts/deauth_wireless_attack.sh
 sudo bash ~/deauth_wireless_attack.sh
 ```
