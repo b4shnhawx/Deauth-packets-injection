@@ -42,7 +42,7 @@ make install
 ```
 Finally we just download the [deauth_wireless_attack.sh](https://github.com/davidahid/Deauth-packets-injection/blob/master/scripts/deauth_wireless_attack.sh) script and execute it in bash.
 ```sh
-wget https://github.com/davidahid/Deauth-packets-injection/blob/master/scripts/deauth_wireless_attack.sh
+git clone https://github.com/davidahid/Deauth-packets-injection/blob/master/scripts/deauth_wireless_attack.sh
 sudo bash ~/deauth_wireless_attack.sh
 ```
 ### Example
