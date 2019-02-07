@@ -3,6 +3,29 @@
 #How to: https://hackernoon.com/forcing-a-device-to-disconnect-from-wifi-using-a-deauthentication-attack-f664b9940142
 #OUI lookup: https://hwaddress.com/?q=38%3A78%3A62
 
+#---------------------------------------------- VARIABLES ----------------------------------------------
+#Here are some variable for the text format. These variables uses escape sequences (control sequences for ANSI/VT100)
+#In linux the escape sequences are \e, \033, \x1B
+BLINK="\e[5m"
+BOLD="\e[1m"
+UNDERLINED="\e[4m"
+INVERT="\e[7m"
+HIDE="\e[8m"
+
+RED="\e[31m"
+BLUE="\e[34m"
+BLACK="\e[40m"
+WHITE="\e[37m"
+CYAN="\e[36m"
+LIGHTYELLOW="\e[1;33m"
+
+UNDERRED="\e[41m"
+UNDERGREEN="\e[42m"
+
+#Obv we need a control sequence that closes the rest control sequences
+END="\e[0m"
+
+#---------------------------------------------- FUNCTIONS ----------------------------------------------
 #Function for wait 12 seconds
 waitFunction()
 {
@@ -148,28 +171,9 @@ newTerminal()
 	fi
 }
 
-#Here are some variable for the text format. These variables uses escape sequences (control sequences for ANSI/VT100)
-#In linux the escape sequences are \e, \033, \x1B
-BLINK="\e[5m"
-BOLD="\e[1m"
-UNDERLINED="\e[4m"
-INVERT="\e[7m"
-HIDE="\e[8m"
-
-RED="\e[31m"
-BLUE="\e[34m"
-BLACK="\e[40m"
-WHITE="\e[37m"
-CYAN="\e[36m"
-LIGHTYELLOW="\e[1;33m"
-
-UNDERRED="\e[41m"
-UNDERGREEN="\e[42m"
-
-#Obv we need a control sequence that closes the rest control sequences
-END="\e[0m"
-
+#---------------------------------------------- PROGRAM ----------------------------------------------
 #Lets start with the script!
+
 #Clear the terminal
 clear
 
