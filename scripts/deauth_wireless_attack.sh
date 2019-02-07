@@ -97,7 +97,7 @@ newTerminal()
 		xfce4-terminal --hold --geometry=700x400+0+0 -e="$1" 2> /dev/null &
 
 	#If gnome-terminal (for gnome) is founded... (BETA xd)
-	elif [[ $gnome == '/usr/bin/gnome-terminal(BROKEN)' ]]; #Delete (BROKEN) to enter in the elif condition
+	elif [[ $gnome == '/usr/bin/gnome-terminal(BETA)' ]]; #Delete (BETA) to enter in the elif condition
 	then
 		#Will do the same as above but with the specific sintaxis for gnome. Gnome It doesnt work
 		#well for this application. Cant execute commands and not have a hold/no close option for
@@ -106,7 +106,7 @@ newTerminal()
 		echo -e $RED"It seems like gnome-terminal have problems with --command option :/"$END
 
 	#If lxterminal (for lxde) is founded... (BETA xd)
-	elif [[ $lxde == '/usr/bin/lxterminal(BROKEN)' ]]; #Delete (BROKEN) to enter in the elif condition
+	elif [[ $lxde == '/usr/bin/lxterminal(BETA)' ]]; #Delete (BETA) to enter in the elif condition
 	then
 		#Will do the same as above but with the specific sintaxis for gnome. As gnome, it doesnt
 		#work well because it doesnt have hold/no close option.
