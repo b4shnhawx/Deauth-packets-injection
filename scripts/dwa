@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bash /etc/deauth_wireless_attack.sh 2> /dev/null
