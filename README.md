@@ -1,4 +1,4 @@
-# Deauth-packets-injection
+# DWA: Deauth-packets-injection
 __NOTE: This script is only for educational and learning purposes and I am not responsible for misuse. Never use it to annoy or harm other people or systems. Use it only against your own networks and devices!!!__
 
 ### Description
