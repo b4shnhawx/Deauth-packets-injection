@@ -42,7 +42,7 @@ make
 make install
 ```
 
-Finally we need to install DWA. For this, we need to clone the git and decompress the tar.
+Now we need to install DWA. For this, we need to clone the git and decompress the tar. Finally we execute the `installer.sh` and the script will be installed! 
 ```sh
 cd ~
 git clone https://github.com/davidahid/Deauth-packets-injection
