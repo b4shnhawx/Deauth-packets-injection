@@ -19,13 +19,13 @@ The program that we going to use is the aircrack-ng suit in Kali Linux.
 ### Configuration
 First we need to install the aircrack-ng suite. There is two methods:
 
-__First method:__
+__First method: apt-get__
 ```sh
 sudo apt-get update
 sudo apt-get install aircrack-ng
 ```
 
-__Second method:__
+__Second method: compile and install__
 
 We install all the dependencies for aircrack.
 ```sh
@@ -42,10 +42,20 @@ make
 make install
 ```
 ### Installation
-Finally we install DWA. There is two methods:
+Finally we install DWA. Also there is two methods:
+
+__First method: tar file__
 ```sh
 cd ~
-git clone https://github.com/davidahid/Deauth-packets-injection/blob/master/scripts/deauth_wireless_attack.sh
-sudo bash ~/deauth_wireless_attack.sh
+git clone https://github.com/davidahid/Deauth-packets-injection/blob/master/scripts/dwa.tar
+tar -xvf dwa.tar
+cd dwa/
+bash installer.sh
+```
+
+__Second method: git installer__
+```sh
+sudo apt-get update
+sudo apt-get install aircrack-ng
 ```
 ### Example
