@@ -42,7 +42,7 @@ make
 make install
 ```
 
-Now we need to install DWA. For this, we need to clone the git and decompress the tar. Finally we execute the `installer.sh` and the script will be installed! 
+Now we need to install DWA. For this, we need to clone the git and decompress the `.tar`. Finally we execute the `installer.sh` and the script will be installed! 
 ```sh
 cd ~
 git clone https://github.com/davidahid/Deauth-packets-injection
@@ -51,5 +51,13 @@ tar -xvf dwa.tar
 cd dwa/
 bash installer.sh
 ```
+
+Optinally we can remove the downloaded git.
+```sh
+cd
+rm -rf Deauth-packets-injection
+```
+
+The DWA script its been saved in `/etc/deauth_wireless_attack.sh` and the binary file in `/bin/dwa`.
 
 ### Example
