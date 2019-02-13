@@ -41,21 +41,15 @@ cd aircrack-ng-1.5.2
 make
 make install
 ```
-### Installation
-Finally we install DWA. Also there is two methods:
 
-__First method: tar file__
+Finally we need to install DWA. For this, we need to clone the git and decompress the tar.
 ```sh
 cd ~
-git clone https://github.com/davidahid/Deauth-packets-injection/blob/master/scripts/dwa.tar
+git clone https://github.com/davidahid/Deauth-packets-injection
+cd Deauth-packets-injection/scripts/
 tar -xvf dwa.tar
 cd dwa/
 bash installer.sh
 ```
 
-__Second method: git installer__
-```sh
-sudo apt-get update
-sudo apt-get install aircrack-ng
-```
 ### Example
