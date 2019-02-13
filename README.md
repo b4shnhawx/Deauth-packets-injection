@@ -58,6 +58,11 @@ cd
 rm -rf Deauth-packets-injection
 ```
 
+Now we can execute the DWA script in the terminal as a conventional command!
+```sh
+dwa
+```
+
 The DWA script its been saved in `/etc/deauth_wireless_attack.sh` and the binary file in `/bin/dwa`.
 
 ### Example
