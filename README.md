@@ -52,7 +52,7 @@ cd dwa/
 bash installer.sh
 ```
 
-Optinally we can remove the downloaded git.
+Optionally we can remove the downloaded git.
 ```sh
 cd
 rm -rf Deauth-packets-injection
