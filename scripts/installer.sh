@@ -1,6 +1,6 @@
 #!/bin/bash
 
 cd
-cp ./dwa/deauth_wireless_attack.sh /etc/
-cp ./dwa/dwa /bin/
+sudo cp $HOME/Deauth-packets-injection/scripts/deauth_wireless_attack.sh /etc/
+sudo cp $HOME/Deauth-packets-injection/scripts/dwa /bin/
 chmod u+x /bin/dwa
