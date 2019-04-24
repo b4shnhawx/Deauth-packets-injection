@@ -48,8 +48,6 @@ Now we need to install DWA. For this, we need to clone the git and decompress th
 cd ~
 git clone https://github.com/davidahid/Deauth-packets-injection
 cd Deauth-packets-injection/scripts/
-tar -xvf dwa.tar
-cd dwa/
 bash installer.sh
 ```
 
