@@ -191,7 +191,7 @@ newTerminal()
 		echo ""
 		echo -e "No compatible desktop enviroment founded: KDE, XFCE, Gnome ("$LIGHTYELLOW"BETA"$END"), LXDE ("$LIGHTYELLOW"BETA"$END")"
 		echo "My recommendation is to install the xfce4-terminal (I will install only the WM terminal, not the entire xfce4 desktop environment, I promise). Do you want?"
-		echo "NOTE: If you run this script via Telnet or SSH type 'no'"
+		echo "IMPORTANT: If you are running this script via Telnet or SSH type 'no'"
 		echo ""
 		echo -e $BLINK">"$END "[ y/n ]"
 		read install_response
