@@ -16,6 +16,9 @@ Here is an example of how this packets are injected (left). Also we can view an 
 Knowing all this, we can use it to inject packets at our will to disconnect a specific device from almost any network.
 The program that we going to use is the aircrack-ng suit in Kali Linux.
 
+The operation of this script is summarized in the following block diagram.
+
+
 ### Configuration
 First we need to install the aircrack-ng suite. There is two methods:
 
