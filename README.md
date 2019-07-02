@@ -17,7 +17,9 @@ Knowing all this, we can use it to inject packets at our will to disconnect a sp
 The program that we going to use is the aircrack-ng suit in Kali Linux.
 
 The operation of this script is summarized in the following block diagram.
-
+<p align="center">
+  <img src="https://github.com/davidahid/Deauth-packets-injection/blob/master/images/dwa-diagram.jpg">
+</p>
 
 ### Configuration
 First we need to install the aircrack-ng suite. There is two methods:
