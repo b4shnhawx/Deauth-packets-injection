@@ -56,6 +56,11 @@ cd Deauth-packets-injection/scripts/
 bash installer.sh
 ```
 
+Now we need to change the permissions and add that we want that the program be executable.
+```sh
+chmod +x /bin/dwa
+```
+
 Optionally we can remove the downloaded git.
 ```sh
 cd
