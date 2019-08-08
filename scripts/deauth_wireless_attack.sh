@@ -5,6 +5,41 @@
 
 
 
+
+#---------------------------------------------- VARIABLES ----------------------------------------------
+
+#Here are some variable for the text format. These variables uses escape sequences (control sequences for ANSI/VT100)
+#In linux the escape sequences are \e, \033, \x1B
+BLINK="\e[5m"
+BOLD="\e[1m"
+UNDERLINED="\e[4m"
+INVERT="\e[7m"
+HIDE="\e[8m"
+
+RED="\e[31m"
+BLUE="\e[34m"
+BLACK="\e[40m"
+WHITE="\e[37m"
+CYAN="\e[36m"
+LIGHTYELLOW="\e[1;33m"
+
+UNDERRED="\e[41m"
+UNDERGREEN="\e[42m"
+
+#Obv we need a control sequence that closes the rest control sequences
+END="\e[0m"
+
+#Time in seconds for aircrack to update the monitoring
+aircrackUpdate=1
+
+#In these variable we save the location of the terminals for each desktop enviroments (used in the newTerminal() function)
+kde=`which konsole`
+xfce=`which xfce4-terminal`
+gnome=`which gnome-terminal`
+
+
+
+
 #---------------------------------------------- FUNCTIONS ----------------------------------------------
 programTerminated()
 {
@@ -149,11 +184,6 @@ initFunction()
 #KDE and XFCE works well for this script. Gnome and LXDE probably not...
 newTerminal()
 {
-	#In these variable we save the location of the terminals for each desktop enviroments.
-	kde=`which konsole`
-	xfce=`which xfce4-terminal`
-	gnome=`which gnome-terminal`
-
 	#If konsole (for kde plasma) is founded...
 	if [[ $kde == '/usr/bin/konsole' ]];
 	then
@@ -185,7 +215,12 @@ newTerminal()
 		#work well because it doesnt have hold/no close option.
 		lxterminal --geometry=90x30 --e $1 2> /dev/null #&
 
-	#But if no desktop manager is founded...
+	elif [[ $kde == 'ssh' && $xfce == 'ssh' && $gnome == 'ssh' ]];
+	then
+		echo ""
+		echo -e "So then open a new terminal and enter this command -> " $CYAN$1$END
+
+	#But if no desktop manager is founded and the user isnt connected via Telnet or SSH...
 	else
 		#Show the commands the user need to input in a new terminal
 		echo ""
@@ -220,7 +255,7 @@ newTerminal()
 		#But if the user tells no or whatever...
 		else
 			#...only prints the command that the user need to type it manually in another terminal.
-			echo -e "Mh... Ok... Then please, open a new terminal and enter this -> " $CYAN$1$END
+			echo -e "Mh... Ok... Then please, open a new terminal and enter this command -> " $CYAN$1$END
 
 			#And the script continues running normally.
 		fi
@@ -242,38 +277,48 @@ killTerminal()
 
 
 
-#---------------------------------------------- VARIABLES ----------------------------------------------
-
-#Here are some variable for the text format. These variables uses escape sequences (control sequences for ANSI/VT100)
-#In linux the escape sequences are \e, \033, \x1B
-BLINK="\e[5m"
-BOLD="\e[1m"
-UNDERLINED="\e[4m"
-INVERT="\e[7m"
-HIDE="\e[8m"
-
-RED="\e[31m"
-BLUE="\e[34m"
-BLACK="\e[40m"
-WHITE="\e[37m"
-CYAN="\e[36m"
-LIGHTYELLOW="\e[1;33m"
-
-UNDERRED="\e[41m"
-UNDERGREEN="\e[42m"
-
-#Obv we need a control sequence that closes the rest control sequences
-END="\e[0m"
-
-#Time in seconds for aircrack to update the monitoring
-aircrackUpdate=1
-
-
 
 #---------------------------------------------- PROGRAM ----------------------------------------------
 #Initialises the trap. When the program is terminated by any reason with the code EXIT (cancelled by user,
 #exiting normally, etc), the function programTerminated will be executed before the script finishes completly.
 trap programTerminated EXIT
+
+#Clear the terminal
+clear
+
+#Asks if you are running the script on a SSH or Telnet client
+echo ""
+echo -e "Are you running this script via Telnet or SSH?"
+echo ""
+#Read what user inputs and save it in the variable ssh_response
+echo -e $BLINK">"$END "[ y/n ]"
+read ssh_response
+
+#If the response dosnt match with y or n, enters the bucle
+while (( $ssh_response != 'y' || $ssh_response != 'n' || $ssh_response != 'Y' || $ssh_response != 'N' ))
+do
+	#Ask again for a valid response
+	echo ""
+	echo -e "What are you doing??? Just type any of the options y/n Y/N !!"
+	echo ""
+	echo -e $BLINK">"$END "[ y/n ]"
+	read ssh_response
+
+	#If the response now match with y, n, Y or N, exits the bucle
+	if [[ $ssh_response == 'y' || $ssh_response == 'n' || $ssh_response == 'Y' || $ssh_response == 'N' ]];
+	then
+		break
+	fi
+done
+
+#If the user are runnning the script via SSH or Telnet...
+if [[ $ssh_response == 'y' || $ssh_response == 'Y' ]];
+then
+	#...changes the value of the consoles location  variables, because we dont have at this moment the GUI to view the new windows
+    kde="ssh"
+    xfce="ssh"
+    gnome="ssh"
+fi
 
 #Lets start with the script!
 #Clear the terminal
@@ -413,6 +458,7 @@ waitFunction
 while true;
 do
 	#Prints the third instruction
+	echo ""
 	echo -e $BLUE$BOLD"3)"$END$END "Finally type the MAC of the device that you want to kick out of the wireless network. As the same, you can know at which device correspond a MAC address using the OUI lookup page."
 	echo "Press Enter to inject deauth packets to de broadcast MAC (FF:FF:FF:FF:FF:FF). This affects to all hosts connected to the network."
 
